@@ -1,5 +1,8 @@
 #include <8052.h>
 #include <stdio.h>
+#include "delay.h"
+#include "lcd1602/lcd1602.h"
+
 #define LED0 P2
 
 // 延迟函数
@@ -13,6 +16,10 @@ int main(void)
 
    // keyboardProgressive();
    // keyboardSingleLight();
+   lcd1602_init();
+   lcd1602_show_string(0, 0, "Hello World");
+   lcd1602_show_string(0, 1, "-123");
+
    while (1)
    {
       // int nums[3][2] = {{1, 1}, {2, 2}, {3, 5}};
@@ -27,6 +34,7 @@ int main(void)
    // nixietubeSingleLight(2, 3);
    return 0;
 }
+
 // 数码管函数
 void nixietubeSingleLight(unsigned char location, unsigned char num)
 {
@@ -180,20 +188,5 @@ void flowLed(void)
       LED0 = origin & (~(1 << i));
       delay1ms(500);
       /* code */
-   }
-}
-void delay1ms(unsigned int ms)
-{
-   unsigned char i, j;
-   while (ms)
-   {
-      i = 2;
-      j = 239;
-      do
-      {
-         while (--j)
-            ;
-      } while (--i);
-      ms--;
    }
 }

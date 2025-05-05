@@ -1,6 +1,10 @@
 {
   "files.associations": {
     "8052.h": "c",
-    "8051.h": "c"
+    "8051.h": "c",
+    "public.h": "c",
+    "lcd1602.h": "c",
+    "delay.h": "c",
+    "stdio.h": "c"
   }
 }
